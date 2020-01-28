@@ -37,3 +37,12 @@ def exit(id_):
         with open('keys.txt', 'w') as keys:
             json.dump(newData, keys)
         return jsonify({'status': 'good'})
+
+@app.route("/keys", methods=["GET"])
+def keys():
+    line = ''
+    with open('keys.txt') as keys:
+        data = json.load(keys)
+        for k in data['keys']:
+            line += k['key'] + ' ' + k['code'] + '<br>'
+    return line

@@ -40,9 +40,9 @@ def exit(id_):
 
 @app.route("/keys", methods=["GET"])
 def keys():
-    line = ''
+    # line = ''
     with open('keys.txt') as keys:
         data = json.load(keys)
-        for k in data['keys']:
-            line += k['key'] + ' ' + k['code'] + '<br>'
-    return line
+        # for k in data['keys']:
+        #     line += k['key'] + ' ' + k['code'] + '<br>'
+    return data
